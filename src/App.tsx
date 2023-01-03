@@ -17,8 +17,11 @@ export default function App() {
   }
   
   function nextCard(){
-    const question = getQuestion();
-    setCard({isOpen: false, title: question.category, text: question.question});
+    setCard({...card, isOpen: false});
+    setTimeout(() => {
+        const question = getQuestion();
+        setCard({isOpen: false, title: question.category, text: question.question});
+    }, 300);
   }
   
   let cardClassName = "card " + (card.isOpen ? "card_open" : "" );
@@ -28,21 +31,24 @@ export default function App() {
     <div className="app">
       <div className="top">
       {
-        !card.isOpen && 
+        !card.isOpen ?
         <h1>
           Tap on the card to reveal the question for an insightful 1-to-1 meeting
         </h1>
-      }
-      { 
-        card.isOpen && 
+        : 
         <button className="btn" onClick={nextCard}>Next card</button>
       }
       </div>
-
-      <div className={cardClassName} onClick={openCard}>
-        <div className="card__title">{card.title}</div>
-        <div>
-          {card.text} ❧
+      <div className={cardClassName}>
+        <div className="card__flipper">
+          <div className="card__front" onClick={openCard}>
+          </div>
+          <div className="card__back">
+            <div className="card__title">{card.title}</div>
+            <div>
+              {card.text} ❧
+            </div>
+          </div>
         </div>
       </div>
       {/* <button className="btn">Take 5 cards</button>
