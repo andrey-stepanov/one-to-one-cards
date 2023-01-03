@@ -10,23 +10,21 @@ function getQuestion(){
 
 export default function App() {
   const question = getQuestion();
-  const [card,setCard] = useState({isOpen: false, title: question.category, text: question.question});
+  const [card,setCard] = useState({isOpen: false, isMovingOut: false, title: question.category, text: question.question});
   
   function openCard(){
     setCard({...card, isOpen: true});
   }
   
   function nextCard(){
-    setCard({...card, isOpen: false});
+    setCard({...card, isOpen: false, isMovingOut: true});
+    // delay until flip animation finishes
     setTimeout(() => {
         const question = getQuestion();
-        setCard({isOpen: false, title: question.category, text: question.question});
-    }, 300);
+        setCard({isOpen: false, isMovingOut: false, title: question.category, text: question.question});
+    }, 300); 
   }
   
-  let cardClassName = "card " + (card.isOpen ? "card_open" : "" );
-  
-
   return (
     <div className="app">
       <div className="top">
@@ -39,7 +37,7 @@ export default function App() {
         <button className="btn" onClick={nextCard}>Next card</button>
       }
       </div>
-      <div className={cardClassName}>
+      <div className={'card ' + (card.isOpen ? 'card_open' : '') + ' ' +  (card.isMovingOut ? 'card_movingout' : '')}>
         <div className="card__flipper">
           <div className="card__front" onClick={openCard}>
           </div>
@@ -51,14 +49,13 @@ export default function App() {
           </div>
         </div>
       </div>
-      {/* <button className="btn">Take 5 cards</button>
-      <button className="btn">Select topics</button> */}
+
       <div className="footer">
-        Made with ️
+        Made with&nbsp;
         <span role="img" aria-label="love">
           💜
         </span>{" "}
-        by Andrey&nbsp;@&nbsp;
+        by&nbsp;Andrey&nbsp;@&nbsp;
         <a href="https://www.byteminds.co.uk">ByteMinds</a>
         <div>
           <a href="https://github.com">Github</a>

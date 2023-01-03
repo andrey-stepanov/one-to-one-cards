@@ -26,10 +26,17 @@ h1 {
 
 .card {
   display: block;
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 40px;
   perspective: 1000px;
+  transition: left 300ms ease-in;
+  left: 0px;
+}
+
+.card_movingout {
+  left: 100%;
 }
 
 .card.card_open .card__flipper {
