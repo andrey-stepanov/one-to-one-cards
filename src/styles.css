@@ -78,8 +78,8 @@ h1 {
 .card__back {
   border-radius: 7px;
   box-shadow: 0px 4px 6px 4px rgba(0, 0, 0, 0.15);
-  padding: 20px;
-  text-align: center;
+  padding: 30px;
+  text-align: left;
   background: white;
   color: black;
   cursor: default;
@@ -110,6 +110,38 @@ h1 {
   transform: scale(1.05);
 }
 
+.topics {
+  display: block;
+  position: relative;
+  margin-bottom: 40px;
+  left: 100%;
+  transition: left 300ms ease-in;
+}
+
+.topics.topics_open {
+  left: 0px;
+}
+
+.topics__card {
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  width: 60vw;
+  max-width: 15rem;
+  border-radius: 7px;
+  box-shadow: 0px 4px 6px 4px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  text-align: left;
+  background: white;
+  color: black;
+  margin-top: -8px;
+}
+
+.topics__title {
+  color: var(--accent-color);
+  padding-bottom: 20px;
+}
+
 .btn {
   transition-property: box-shadow, transform;
   transition-duration: 300ms;
@@ -133,6 +165,11 @@ h1 {
   width: 12em;
 }
 
+.topics__card:last-child {
+  height: 85vw;
+  max-height: calc(15rem * 1.4166666667);
+}
+
 .btn:hover {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
   transform: scale(1.05);
@@ -141,6 +178,96 @@ h1 {
 .btn:active {
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
   transform: scale(1);
+}
+
+.checkbox-contain *,
+.checkbox-contain *::before,
+.checkbox-contain *::after {
+  box-sizing: content-box !important;
+}
+
+.checkbox-contain input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.checkbox-contain span {
+  line-height: 1;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.checkbox-contain {
+  display: table;
+  position: relative;
+  padding-left: 2rem;
+  cursor: pointer;
+  margin-bottom: 0.4rem;
+}
+
+.checkbox-contain input[type="checkbox"] ~ .checkbox-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1.25rem;
+  width: 1.25rem;
+  background: white;
+  transition: background 250ms;
+  border: 1px solid #a88aeb;
+  border-radius: 0.2rem;
+}
+
+.checkbox-contain input[type="checkbox"] ~ .checkbox-input::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 7px;
+  top: 3px;
+  width: 0.3rem;
+  height: 0.6rem;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transition: background 250ms;
+  transform: rotate(45deg);
+}
+
+.checkbox-contain input[type="checkbox"]:disabled ~ .checkbox-input::after {
+  border-color: #ffffff;
+}
+
+.checkbox-contain input:checked ~ .checkbox-input::after {
+  display: block;
+}
+
+.checkbox-contain:hover
+  input[type="checkbox"]:not([disabled])
+  ~ .checkbox-input,
+.checkbox-contain input[type="checkbox"]:focus ~ .checkbox-input {
+  background: white;
+  border-color: #a88aeb;
+}
+
+.checkbox-contain input:focus ~ .checkbox-input {
+  box-shadow: 0 0 0 2px #60a5fa;
+}
+
+.checkbox-contain input[type="checkbox"]:checked ~ .checkbox-input {
+  background: #805ad5;
+  border-color: #805ad5;
+}
+
+.checkbox-contain input[type="checkbox"]:disabled ~ .checkbox-input {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.checkbox-contain:hover
+  input[type="checkbox"]:not([disabled]):checked
+  ~ .checkbox-input,
+.checkbox-contain input[type="checkbox"]:checked:focus ~ .checkbox-input {
+  background: #a88aeb;
+  border-color: #a88aeb;
 }
 
 a {
