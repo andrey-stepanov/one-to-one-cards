@@ -118,7 +118,7 @@ export default function App() {
     >
       <div className="card__flipper">
         <div className="card__front" onClick={openCard}></div>
-        <div className="card__back">
+        <div className="card__back" onClick={nextCard}>
           <div className="card__title">{card.title}</div>
           <div>{card.text} ❧</div>
         </div>
