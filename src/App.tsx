@@ -4,13 +4,17 @@ import questions from "./questions.json";
 import topics from "./topics.json";
 import React, { useState } from "react";
 
-function getQuestion() {
-  let index = Math.floor(Math.random() * questions.length);
-  return questions[index];
+function getQuestion(selectedTopics: Array<string>) {
+  let filtered = questions.filter(
+    (value) => selectedTopics.indexOf(value.category) >= 0
+  );
+  let index = Math.floor(Math.random() * filtered.length);
+  return filtered[index];
 }
 
 export default function App() {
-  const question = getQuestion();
+  const selectedTopics = topics.map((t) => t.topic);
+  const question = getQuestion(selectedTopics);
   const [card, setCard] = useState({
     isOpen: false,
     isTopicSelect: false,
@@ -18,6 +22,7 @@ export default function App() {
     isMovingOut: false,
     title: question.category,
     text: question.question,
+    selectedTopics: selectedTopics,
   });
 
   function openCard() {
@@ -28,7 +33,7 @@ export default function App() {
     setCard({ ...card, isOpen: false, isMovingOut: true });
     // delay until flip & slide animation finishes
     setTimeout(() => {
-      const question = getQuestion();
+      const question = getQuestion(card.selectedTopics);
       setCard({
         isOpen: false,
         isTopicSelect: false,
@@ -36,6 +41,7 @@ export default function App() {
         isMovingOut: false,
         title: question.category,
         text: question.question,
+        selectedTopics: card.selectedTopics,
       });
     }, 300 + 100); // sum of animation and delay times
   }
@@ -52,7 +58,13 @@ export default function App() {
     setCard({ ...card, isTopicMovingOut: true });
     // delay until slide animation finishes
     setTimeout(() => {
-      const question = getQuestion();
+      const selectedTopics =
+        card.selectedTopics.length === 0
+          ? topics.map((value) => value.topic)
+          : card.selectedTopics;
+
+      const question = getQuestion(selectedTopics);
+
       setCard({
         isOpen: false,
         isTopicSelect: false,
@@ -60,15 +72,34 @@ export default function App() {
         isMovingOut: false,
         title: question.category,
         text: question.question,
+        selectedTopics: selectedTopics,
       });
     }, 300);
+  }
+
+  function checkTopic(event: React.ChangeEvent<HTMLInputElement>) {
+    const target = event.target;
+    const topic = target.value;
+    const checked = target.checked;
+    let selectedTopics = card.selectedTopics;
+    if (checked) {
+      selectedTopics.push(topic);
+    } else {
+      selectedTopics = selectedTopics.filter((value) => value !== topic);
+    }
+    setCard({ ...card, selectedTopics: selectedTopics });
   }
 
   let topicCards = topics.map((topic) => (
     <div className="topics__card" key={topic.topic}>
       <label className="topics__title checkbox-contain">
         <span>{topic.topic}</span>
-        <input type="checkbox" />
+        <input
+          value={topic.topic}
+          type="checkbox"
+          checked={card.selectedTopics.indexOf(topic.topic) >= 0}
+          onChange={checkTopic}
+        />
         <div className="checkbox-input"></div>
       </label>
 
