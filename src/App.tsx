@@ -157,14 +157,24 @@ export default function App() {
       )}
 
       <div className="footer">
-        Made with&nbsp;
-        <span role="img" aria-label="love">
-          💜
-        </span>{" "}
-        by&nbsp;Andrey&nbsp;@&nbsp;
-        <a href="https://www.byteminds.co.uk">ByteMinds</a>
         <div>
-          <a href="https://github.com">Github</a>
+          Made with&nbsp;
+          <span role="img" aria-label="love">
+            💜
+          </span>{" "}
+          by&nbsp;Andrey&nbsp;@&nbsp;
+          <a href="https://www.byteminds.co.uk">ByteMinds</a>
+        </div>
+        <div>
+          Questions by{" "}
+          <a href="https://github.com/VGraupera/1on1-questions">
+            Vidal Gaupera
+          </a>
+        </div>
+        <div>
+          <a href="https://github.com/andrey-stepanov/one-on-one-cards">
+            GitHub
+          </a>
         </div>
       </div>
     </div>
