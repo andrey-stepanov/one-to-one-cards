@@ -1,0 +1,27 @@
+[
+  {
+    "topic": "Conversation starters",
+    "description": "Good questions to kick start the meeting, ice-breakers"
+  },
+  {
+    "topic": "About Manager",
+    "description": "Getting feedback and looking for ways to support an employee as a manager"
+  },
+  {
+    "topic": "Career development",
+    "description": "Exploring employee's career direction and aspirations"
+  },
+  {
+    "topic": "Job satisfaction",
+    "description": "Understanding employee's vision on their current role and career stage"
+  },
+  {
+    "topic": "Team and company",
+    "description": "Looking at the team from employee's point of view"
+  },
+  {
+    "topic": "Work-life",
+    "description": "Questions on balancing work and life, and how they both affect person’s wellbeing"
+  },
+  { "topic": "Other", "description": "Just random topics" }
+]
