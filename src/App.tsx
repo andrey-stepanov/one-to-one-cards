@@ -172,7 +172,7 @@ export default function App() {
           </a>
         </div>
         <div>
-          <a href="https://github.com/andrey-stepanov/one-on-one-cards">
+          <a href="https://github.com/andrey-stepanov/one-to-one-cards">
             GitHub
           </a>
         </div>
