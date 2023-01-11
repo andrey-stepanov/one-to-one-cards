@@ -9,19 +9,19 @@
   },
   {
     "topic": "Career development",
-    "description": "Exploring employee's career direction and aspirations"
+    "description": "Exploring career direction and aspirations"
   },
   {
     "topic": "Job satisfaction",
-    "description": "Understanding employee's vision on their current role and career stage"
+    "description": "Understanding the employee's vision of the current role and career stage"
   },
   {
     "topic": "Team and company",
-    "description": "Looking at the team from employee's point of view"
+    "description": "Looking at the team from the employee's point of view"
   },
   {
     "topic": "Work-life",
-    "description": "Questions on balancing work and life, and how they both affect person’s wellbeing"
+    "description": "Reflecting on place of work in life and how it affects wellbeing"
   },
-  { "topic": "Other", "description": "Just random topics" }
+  { "topic": "Other", "description": "Just some random topics" }
 ]
