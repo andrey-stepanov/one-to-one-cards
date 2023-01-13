@@ -9,6 +9,7 @@ html {
   color: black;
   --accent-color: #805ad5;
   -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
 }
 
 *:focus {
@@ -137,6 +138,34 @@ h1 {
   margin-top: -8px;
 }
 
+.topics__card:last-child {
+  height: 80vw;
+  max-height: calc(15rem * 1.4166666667);
+}
+
+
+@media only screen and (min-width: 660px) {
+  .topics {
+    display: grid;
+    max-width: 1280px;
+    grid-template-columns: repeat(auto-fill, 15rem);
+
+    margin: 0 auto;
+    grid-gap: 20px;
+    justify-content: center;
+  }
+  
+  .topics__card {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+  }
+  
+  .topics__card:last-child {
+    height: auto;
+  }
+}
+
 .topics__title {
   color: var(--accent-color);
   padding-bottom: 20px;
@@ -165,10 +194,6 @@ h1 {
   width: 12em;
 }
 
-.topics__card:last-child {
-  height: 80vw;
-  max-height: calc(15rem * 1.4166666667);
-}
 
 .btn:hover {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
