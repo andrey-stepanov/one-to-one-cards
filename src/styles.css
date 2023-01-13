@@ -9,6 +9,7 @@ html {
   color: black;
   --accent-color: #805ad5;
   -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
 }
 
 *:focus {
