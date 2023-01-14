@@ -5,6 +5,9 @@ Copyright (c) 2023 Andrey Stepanov
 Original questions:
 Copyright (c) Vidal Graupera
 
+Patters:
+Copyright (c) 2020 - 2021 pattern.monster
+
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
