@@ -5,7 +5,7 @@ Copyright (c) 2023 Andrey Stepanov
 Original questions:
 Copyright (c) Vidal Graupera
 
-Patters:
+Patterns:
 Copyright (c) 2020 - 2021 pattern.monster
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
