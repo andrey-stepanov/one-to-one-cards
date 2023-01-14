@@ -35,7 +35,7 @@ export default function App() {
     setTimeout(() => {
       const question = getQuestion(card.selectedTopics);
       setCard({
-        isOpen: false,
+        isOpen: true,
         isTopicSelect: false,
         isTopicMovingOut: false,
         isMovingOut: false,
@@ -134,7 +134,7 @@ export default function App() {
     <button className="btn" onClick={setTopics}>
       Set topics
     </button>
-  ) : !card.isOpen ? (
+  ) : !card.isOpen && !card.isMovingOut ? (
     <h1>
       Tap on the card to reveal the question for an insightful 1-to-1 meeting
     </h1>
