@@ -22,7 +22,7 @@
     "eject": "react-scripts eject"
   },
   "engines": {
-    "node": "16.x"
+    "node": "24.x"
   },
   "browserslist": [
     ">0.2%",
